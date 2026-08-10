@@ -1,5 +1,5 @@
 # Zero-OVCD
 
-Official repository for **Zero-OVCD: Pseudo-Label Learning with Vision Foundation Models for Annotation-Free Open-Vocabulary Change Detection**.
+Official repository for **Zero-OVCD: From Training-Free Vision Foundation Models to Pseudo-Label Learning for Open-Vocabulary Change Detection**.
 
 The source code will be made available upon paper acceptance.
