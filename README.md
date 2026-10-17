@@ -32,3 +32,13 @@ In **Stage II**, the Stage I pseudo-labels are used to train a category-specific
 ![Overview of the Zero-OVCD framework](assets/Zero-OVCD.png)
 
 > **Code:** The source code will be made available upon paper acceptance.
+## Datasets
+
+We evaluate Zero-OVCD on four representative remote sensing change detection benchmarks. Please download the datasets from the following links:
+
+| **Dataset** | **Evaluation Setting** | **Download** |
+|:-----------:|:----------------------:|:------------:|
+| LEVIR-CD | Building Change Detection | [Link](https://drive.google.com/file/d/1yRAjetmKfWCImCRV-97wzgA8ym_1g1hV/view?usp=drive_link) |
+| WHU-CD | Building Change Detection | [Link](https://drive.google.com/file/d/1SnGTGmZO72bAa4O4cBjGPjUbXASp2ZnW/view?usp=drive_link) |
+| S2Looking | Building Change Detection | [Link](S2LOOKING_LINK) |
+| SECOND | Category-wise OVCD (6 classes) | [Link](https://drive.google.com/file/d/1w-4HQdKqaD0fpWboeVt2WSEM49pcPldc/view?usp=drive_link) |
