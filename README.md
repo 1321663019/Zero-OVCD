@@ -1,6 +1,12 @@
-# Zero-OVCD
+<h1 align="center">Zero-OVCD</h1>
 
-## Bridging Training-Free Foundation Models and Pseudo-Label Learning for Open-Vocabulary Change Detection
+<h2 align="center">
+Bridging Training-Free Foundation Models and Pseudo-Label Learning for Open-Vocabulary Change Detection
+</h2>
+
+<p align="center">
+  <a href="https://arxiv.org/abs/2602.06529">arXiv</a>
+</p>
 
 <p align="center">
   <a href="https://arxiv.org/abs/2602.06529">arXiv</a>
