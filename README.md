@@ -12,7 +12,9 @@
 
 Existing training-free OVCD pipelines are susceptible to errors caused by inaccurate candidate masks, ambiguous semantic assignments, and error accumulation across sequential inference stages. Zero-OVCD addresses these limitations by progressively refining the intermediate predictions rather than directly treating staged inference results as final change masks.
 
-![Overview of the motivation of Zero-OVCD](assets/fig1_motivation.png)
+<p align="center">
+  <img src="assets/Question.png" width="95%">
+</p>
 
 ## Framework Overview
 
@@ -26,6 +28,8 @@ In **Stage I**, frozen vision foundation models are used to generate high-qualit
 
 In **Stage II**, the Stage I pseudo-labels are used to train a category-specific change detector. A two-phase noise-aware learning strategy performs checkpoint-based pseudo-label updating and high-agreement sample selection to mitigate residual pseudo-label noise. Final predictions are obtained by voting over selected checkpoint predictions together with the corresponding Stage I pseudo-labels.
 
-![Overview of the Zero-OVCD framework](assets/fig2_framework.png)
+<p align="center">
+  <img src="assets/Zero-OVCD.png" width="95%">
+</p>
 
 > **Code:** The source code will be made available upon paper acceptance.
