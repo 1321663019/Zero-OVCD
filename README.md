@@ -42,3 +42,12 @@ We evaluate Zero-OVCD on four representative remote sensing change detection ben
 | WHU-CD | Building Change Detection | [Link](https://drive.google.com/file/d/1SnGTGmZO72bAa4O4cBjGPjUbXASp2ZnW/view?usp=drive_link) |
 | S2Looking | Building Change Detection | [Link](S2LOOKING_LINK) |
 | SECOND | Category-wise OVCD (6 classes) | [Link](https://drive.google.com/file/d/1w-4HQdKqaD0fpWboeVt2WSEM49pcPldc/view?usp=drive_link) |
+## Pretrained Foundation Models
+
+Zero-OVCD employs three pretrained vision foundation models in Stage I. Note that **SegEarth-OV3 shares the same `sam3.pt` checkpoint with SAM3**, so only two unique pretrained checkpoint files need to be downloaded.
+
+| **Model** | **Backbone / Variant** | **Checkpoint** | **Download** |
+|:---------:|:----------------------:|:--------------:|:------------:|
+| SAM3 | PE-L+/14 | `sam3.pt` | [Link](https://huggingface.co/facebook/sam3/blob/main/sam3.pt) |
+| DINOv3 | ViT-L/16 (SAT-493M) | `dinov3_vitl16_pretrain_sat493m-eadcf0ff.pth` | [Link](https://dl.fbaipublicfiles.com/dinov3/dinov3_vitl16/dinov3_vitl16_pretrain_sat493m-eadcf0ff.pth) |
+| SegEarth-OV3 | SAM3-based PE-L+/14 | `sam3.pt` (shared with SAM3) | Same as SAM3 |
