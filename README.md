@@ -15,9 +15,7 @@ Bridging Training-Free Foundation Models and Pseudo-Label Learning for Open-Voca
 
 Existing training-free OVCD pipelines are susceptible to errors caused by inaccurate candidate masks, ambiguous semantic assignments, and error accumulation across sequential inference stages. Zero-OVCD addresses these limitations by progressively refining the intermediate predictions rather than directly treating staged inference results as final change masks.
 
-<p align="center">
-  <img src="assets/Question.png" width="95%">
-</p>
+![Overview of the Zero-OVCD framework](assets/Question.png)
 
 ## Framework Overview
 
@@ -31,8 +29,6 @@ In **Stage I**, frozen vision foundation models are used to generate high-qualit
 
 In **Stage II**, the Stage I pseudo-labels are used to train a category-specific change detector. A two-phase noise-aware learning strategy performs checkpoint-based pseudo-label updating and high-agreement sample selection to mitigate residual pseudo-label noise. Final predictions are obtained by voting over selected checkpoint predictions together with the corresponding Stage I pseudo-labels.
 
-<p align="center">
-  <img src="assets/Zero-OVCD.png" width="95%">
-</p>
+![Overview of the Zero-OVCD framework](assets/Zero-OVCD.png)
 
 > **Code:** The source code will be made available upon paper acceptance.
