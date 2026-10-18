@@ -40,7 +40,7 @@ We evaluate Zero-OVCD on four representative remote sensing change detection ben
 |:-----------:|:----------------------:|:------------:|
 | LEVIR-CD | Building Change Detection | [Link](https://drive.google.com/file/d/1yRAjetmKfWCImCRV-97wzgA8ym_1g1hV/view?usp=drive_link) |
 | WHU-CD | Building Change Detection | [Link](https://drive.google.com/file/d/1SnGTGmZO72bAa4O4cBjGPjUbXASp2ZnW/view?usp=drive_link) |
-| S2Looking | Building Change Detection | [Link](S2LOOKING_LINK) |
+| S2Looking | Building Change Detection | [Link]([S2LOOKING_LINK](https://huggingface.co/datasets/PENGYUANKE/S2Looking/blob/main/S2Looking.zip)) |
 | SECOND | Category-wise OVCD (6 classes) | [Link](https://drive.google.com/file/d/1w-4HQdKqaD0fpWboeVt2WSEM49pcPldc/view?usp=drive_link) |
 ## Pretrained Foundation Models
 
