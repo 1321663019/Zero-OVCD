@@ -42,9 +42,9 @@ We evaluate Zero-OVCD on four representative remote sensing change detection ben
 | WHU-CD | Building Change Detection | [Link](https://drive.google.com/file/d/1SnGTGmZO72bAa4O4cBjGPjUbXASp2ZnW/view?usp=drive_link) |
 | S2Looking | Building Change Detection | [Link](https://huggingface.co/datasets/PENGYUANKE/S2Looking/resolve/main/S2Looking.zip) |
 | SECOND | Category-wise OVCD (6 classes) | [Link](https://drive.google.com/file/d/1w-4HQdKqaD0fpWboeVt2WSEM49pcPldc/view?usp=drive_link) |
-## Pretrained Foundation Models
+## Frozen Vision Foundation Models
 
-Zero-OVCD employs three pretrained vision foundation models in Stage I. Note that **SegEarth-OV3 shares the same `sam3.pt` checkpoint with SAM3**, so only two unique pretrained checkpoints are required.
+Zero-OVCD employs three frozen vision foundation models in Stage I. Note that **SegEarth-OV3 shares the same `sam3.pt` checkpoint with SAM3**, so only two unique pretrained checkpoints are required.
 
 | **Model** | **Backbone / Variant** | **Checkpoint Used in Zero-OVCD** | **Official Model Page** |
 |:---------:|:----------------------:|:--------------------------------:|:-----------------------:|
