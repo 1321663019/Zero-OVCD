@@ -30,7 +30,7 @@ In **Stage II**, the Stage I pseudo-labels are used to train a category-specific
 
 ![Overview of the Zero-OVCD framework](assets/Zero-OVCD.png)
 
-> **Code:** The full source code will be made available upon paper acceptance. Stage II reproducibility configurations and input/output conventions are provided below.
+> **Code:** The full source code will be made available upon paper acceptance. Stage II training configurations are provided below.
 
 ## Datasets
 
@@ -55,63 +55,18 @@ Zero-OVCD employs three frozen vision foundation models in Stage I. Note that **
 
 ## Stage II Reproducibility Configuration
 
-The configuration files for the two training phases of Stage II are provided below:
+Detailed configurations for the two Stage II training phases are provided in:
 
 - **Warm-up Training:** [`configs/stage2/warmup_training/changerex_warmup.py`](configs/stage2/warmup_training/changerex_warmup.py)
 - **High-Agreement Sample Training:** [`configs/stage2/high_agreement_sample_training/changerex_high_agreement.py`](configs/stage2/high_agreement_sample_training/changerex_high_agreement.py)
 
+The configuration files specify the model initialization, random-seed handling, data augmentation, optimizer and learning-rate schedule, dataset-specific settings, and checkpoint selection.
+
 ### Initialization
 
-ChangerEx uses a ResNet-18 V1c backbone initialized from the pretrained `resnet18_v1c.pth` weights. Both Stage II training phases use the same initialization setting. The high-agreement sample training phase independently reinitializes ChangerEx and does not load any checkpoint from the warm-up training phase.
+ChangerEx uses a ResNet-18 V1c backbone initialized from the pretrained `resnet18_v1c.pth` weights. Both Stage II training phases use the same initialization setting, while the high-agreement sample training phase is independently reinitialized without loading a warm-up checkpoint.
 
 The pretrained ResNet-18 V1c weights (`resnet18_v1c.pth`, 44.7 MB) can be downloaded from [Google Drive](https://drive.google.com/file/d/16aVDA0B1CBx9Pk8tzBA8b--RzL5VVGpR/view?usp=drive_link) and should be placed at:
 
 ```text
 checkpoint/resnet18_v1c.pth
-```
-
-### Random Seed
-
-No fixed global random seed is manually specified in the released configurations. Sampler seed handling uses `DistSamplerSeedHook`.
-
-### Data Augmentation
-
-The same training-time augmentation settings are used in both Stage II phases:
-
-- random rotation within `[-20°, 20°]` with `rotate_prob=0.5`;
-- random flipping with `flip_prob=0.5`;
-- random cropping with dataset-specific crop sizes;
-- bitemporal image-order exchange with probability `0.5`;
-- photometric distortion with `brightness_delta=10`, `contrast_range=(0.8, 1.2)`, `saturation_range=(0.8, 1.2)`, and `hue_delta=10`.
-
-Dataset-specific crop sizes, OHEM `min_kept` values, and validation/test resize scales are specified directly in the corresponding configuration files.
-
-### Training Settings
-
-Warm-up training is performed for 20,000 iterations. ChangerEx is then independently reinitialized and trained for 60,000 iterations in the high-agreement sample training phase. Both phases use AdamW with a learning rate of `0.001`, weight decay of `0.05`, polynomial learning-rate decay, a training batch size of `8`, and validation every `500` iterations.
-
-### Input/Output Convention
-
-The Stage II configuration files use the following data organization:
-
-```text
-<DATA_ROOT>/
-├── train/
-│   ├── A/
-│   ├── B/
-│   └── label/
-├── val/
-│   ├── A/
-│   ├── B/
-│   └── label/
-└── test/
-    ├── A/
-    ├── B/
-    └── label/
-```
-
-`A/` and `B/` contain spatially aligned bitemporal images, while `label/` contains the corresponding pseudo-labels with matching filenames.
-
-For **Warm-up Training**, the original Stage I pseudo-labels are used as supervision.
-
-For **High-Agreement Sample Training**, the selected high-agreement samples and their updated pseudo-labels are used for training, while the corresponding high-agreement validation subset is used for pseudo-label-based validation.
