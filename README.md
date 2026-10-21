@@ -64,7 +64,7 @@ The configuration files for the two training phases of Stage II are provided bel
 
 ChangerEx uses a ResNet-18 V1c backbone initialized from the pretrained `resnet18_v1c.pth` weights. Both Stage II training phases use the same initialization setting. The high-agreement sample training phase independently reinitializes ChangerEx and does not load any checkpoint from the warm-up training phase.
 
-The configuration files expect the pretrained backbone at:
+The pretrained ResNet-18 V1c weights (`resnet18_v1c.pth`, 44.7 MB) can be downloaded from [Google Drive](https://drive.google.com/file/d/16aVDA0B1CBx9Pk8tzBA8b--RzL5VVGpR/view?usp=drive_link) and should be placed at:
 
 ```text
 checkpoint/resnet18_v1c.pth
