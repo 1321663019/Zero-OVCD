@@ -154,6 +154,8 @@ default_hooks = dict(
     checkpoint=dict(
         by_epoch=False,
         interval=500,
+        rule='greater',
+        save_best='mFscore',
         type='CheckpointHook',
     ),
     logger=dict(
