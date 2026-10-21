@@ -76,3 +76,4 @@ The pretrained ResNet-18 V1c weights (`resnet18_v1c.pth`, 44.7 MB) can be downlo
 
 ```text
 checkpoint/resnet18_v1c.pth
+```
