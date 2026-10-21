@@ -30,7 +30,7 @@ In **Stage II**, the Stage I pseudo-labels are used to train a category-specific
 
 ![Overview of the Zero-OVCD framework](assets/Zero-OVCD.png)
 
-> **Code:** The full source code will be made available upon paper acceptance. Stage II training configurations are provided below.
+> **Code:** Currently, only the Stage II training configurations are provided. The full source code will be made available upon paper acceptance.
 
 ## Datasets
 
@@ -59,8 +59,6 @@ Detailed configurations for the two Stage II training phases are provided in:
 
 - **Warm-up Training:** [`configs/stage2/warmup_training/changerex_warmup.py`](configs/stage2/warmup_training/changerex_warmup.py)
 - **High-Agreement Sample Training:** [`configs/stage2/high_agreement_sample_training/changerex_high_agreement.py`](configs/stage2/high_agreement_sample_training/changerex_high_agreement.py)
-
-The configuration files specify the model initialization, random-seed handling, data augmentation, optimizer and learning-rate schedule, dataset-specific settings, and checkpoint selection.
 
 ### Initialization
 
