@@ -1,22 +1,14 @@
 # Zero-OVCD Stage II configuration
+# Phase: Warm-up Training
 #
-# Construction rule:
-# 1) Settings explicitly stated in the paper follow the paper.
-# 2) Settings shared by the supplied original configs are retained.
-# 3) Dataset-dependent crop size, OHEM min_kept, and validation/test resize scale
-#    are specified separately for each dataset.
-# 4) ignore_index is unified to 0.
-# 5) Other inconsistent or unclear settings are intentionally omitted.
-
-# Phase: warm-up training
 # Paper-aligned settings:
 #   max_iters = 20000
 #   AdamW, lr = 0.001, weight_decay = 0.05
 #   train batch_size = 8
 #   validation interval = 500
 #
-# No fixed global seed is manually specified. The original configs consistently
-# use DistSamplerSeedHook.
+# No fixed global random seed is manually specified.
+# Sampler seed handling uses DistSamplerSeedHook.
 
 
 dataset_name = 'LEVIR-CD'  # 'LEVIR-CD' | 'WHU-CD' | 'S2Looking' | 'SECOND'
