@@ -43,6 +43,14 @@ We evaluate Zero-OVCD on four representative remote sensing change detection ben
 | S2Looking | Building Change Detection | [Link](https://huggingface.co/datasets/PENGYUANKE/S2Looking/resolve/main/S2Looking.zip) |
 | SECOND | Category-wise OVCD (6 classes) | [Link](https://drive.google.com/file/d/1w-4HQdKqaD0fpWboeVt2WSEM49pcPldc/view?usp=drive_link) |
 
+## Data and Input/Output Convention
+
+The released datasets contain bitemporal images and ground-truth change annotations. The ground-truth annotations are used only for quantitative evaluation and are not used as supervision or inference inputs in Zero-OVCD.
+
+In **Stage I**, the spatially aligned bitemporal images together with the target-category text prompts are used to generate category-specific change pseudo-labels.
+
+In **Stage II**, the bitemporal images and the pseudo-labels generated in Stage I are used for noise-aware pseudo-label learning, and the final output is the predicted category-specific change mask.
+
 ## Frozen Vision Foundation Models
 
 Zero-OVCD employs three frozen vision foundation models in Stage I. Note that **SegEarth-OV3 shares the same `sam3.pt` checkpoint with SAM3**, so only two unique pretrained checkpoints are required.
