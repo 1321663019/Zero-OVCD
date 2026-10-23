@@ -30,7 +30,7 @@ In **Stage II**, the Stage I pseudo-labels are used to train a category-specific
 
 ![Overview of the Zero-OVCD framework](assets/Zero-OVCD.png)
 
-> **Code:** Reproducibility details for Stage I and training configurations for Stage II are currently provided. The full source code will be made available upon paper acceptance.
+> **Code:** Reproducibility details for both Stage I and Stage II are currently provided. The full source code will be made available upon paper acceptance.
 
 ## Datasets
 
