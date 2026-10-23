@@ -69,11 +69,11 @@ The key preprocessing and mask-generation settings used in Stage I are provided 
 
 - **Input loading:** Bitemporal images are read directly using `skimage.io.imread`, without additional grayscale conversion, histogram matching, or data augmentation.
 
-- **SAM3:** Each input image is resized to `1008×1008`, converted to `float32`, and normalized using mean `[0.5, 0.5, 0.5]` and standard deviation `[0.5, 0.5, 0.5]`. The predicted masks are bilinearly interpolated back to the original image resolution.
+- **SAM3:** Each input image is resized to `1008×1008` by the SAM3 processor, converted to `float32`, and normalized using mean `[0.5, 0.5, 0.5]` and standard deviation `[0.5, 0.5, 0.5]`. The predicted masks are bilinearly interpolated back to the original image resolution.
 
 - **DINOv3:** The input image is converted to a tensor and normalized using mean `[0.430, 0.411, 0.296]` and standard deviation `[0.213, 0.156, 0.143]`. No additional resizing is applied in the preprocessing transform, and the extracted feature maps are interpolated to the original image resolution for spatial alignment.
 
-- **SegEarth-OV3:** The input image is resized to scales `{0.8, 1.0, 1.2}`. When either spatial dimension exceeds `512` pixels, inference is performed using `512×512` sliding windows with a stride of `512`. Each inference view follows the SAM3-based preprocessing described above. The semantic response maps are resized back to the original resolution and averaged across the three scales.
+- **SegEarth-OV3:** The input image is resized to scales `{0.8, 1.0, 1.2}`. When either spatial dimension exceeds `512` pixels, inference is performed using `512×512` sliding windows with a stride of `512`. Each inference view follows the SAM3-based preprocessing described above. The semantic response maps are bilinearly interpolated back to the original image resolution and averaged across the three scales.
 
 ### Automatic Mask-Generation Settings
 
