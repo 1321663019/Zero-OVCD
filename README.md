@@ -61,7 +61,7 @@ Zero-OVCD employs three frozen vision foundation models in Stage I. Note that **
 | DINOv3 | ViT-L/16 (SAT-493M) | `dinov3_vitl16_pretrain_sat493m-eadcf0ff.pth` | [Link](https://huggingface.co/facebook/dinov3-vitl16-pretrain-sat493m) |
 | SegEarth-OV3 | SAM3-based PE-L+/14 | `sam3.pt` (shared with SAM3) | Same as SAM3 |
 
-## Stage I Reproducibility Configuration
+## Stage I Reproducibility Details
 
 The key preprocessing and mask-generation settings used in Stage I are provided below to facilitate reproducibility.
 
@@ -93,7 +93,7 @@ Automatic masks are generated using the default configuration adopted in Dynamic
 
 Text-guided semantic masks are generated using the default SAM3 text-prompt inference settings.
 
-## Stage II Reproducibility Configuration
+## Stage II Reproducibility Details
 
 Detailed configurations for the two Stage II training phases are provided in:
 
