@@ -5,7 +5,7 @@ Bridging Training-Free Foundation Models and Pseudo-Label Learning for Open-Voca
 </h3>
 
 <p align="center">
-  <a href="https://doi.org/10.1109/TGRS.2026.3753971">IEEE TGRS</a> |
+  <a href="https://doi.org/10.1109/TGRS.2026.3753971">Paper</a> |
   <a href="https://arxiv.org/abs/2608.11663">arXiv</a>
 </p>
 
@@ -78,7 +78,7 @@ The key preprocessing and mask-generation settings used in Stage I are provided 
 
 Automatic instance masks are generated using the mask-generation configuration adopted in DynamicEarth. For reproducibility, we provide the corresponding batch-generation script and the parameter values used for automatic mask generation.
 
-**Generation script:** [`scripts/stage1/generate_sam3_auto_masks.py`](scripts/stage1/generate_sam3_auto_masks.py)
+**Generation script:** [`stage1/utils/generate_sam3_auto_masks.py`](stage1/utils/generate_sam3_auto_masks.py)
 
 | **Parameter** | **Value** |
 |:--------------|:---------:|
@@ -100,10 +100,10 @@ To run the script, update `local_sam3_dir`, `input_dir`, and `save_dir` to match
 
 | **Dataset** | **Pre-generated Automatic Mask JSON Files** |
 |:-----------:|:------------------------------------------:|
-| LEVIR-CD | Download link to be added |
-| WHU-CD | Download link to be added |
-| S2Looking | Download link to be added |
-| SECOND | Download link to be added |
+| LEVIR-CD | [Download](https://drive.google.com/file/d/1HkZjGXZCRu7SGTyZ5FatPOBn96f7udk6/view?usp=drive_link) |
+| WHU-CD | [Download](https://drive.google.com/file/d/1h77kC3UyGJOUynH1MXyGpoPXj8ytUo2r/view?usp=drive_link) |
+| S2Looking | [Download](https://drive.google.com/file/d/14MrMQm_ZDvxsF3txLliHCgKoKbxXURy9/view?usp=drive_link) |
+| SECOND | [Download](https://drive.google.com/file/d/1n97rj_kwW4QBQG5fp1VFwlbbt-56p55F/view?usp=drive_link) |
 
 Please use the JSON files matching the input dataset, image split, and temporal directory (`A`/`B`). These files contain **class-agnostic automatic mask proposals**, **not** the final Stage I change pseudo-labels or ground-truth annotations. Text-guided semantic masks are generated separately using the default SAM3 text-prompt inference settings and are not included in these JSON files.
 
