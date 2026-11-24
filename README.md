@@ -5,6 +5,7 @@ Bridging Training-Free Foundation Models and Pseudo-Label Learning for Open-Voca
 </h3>
 
 <p align="center">
+  <a href="https://doi.org/10.1109/TGRS.2026.3753971">IEEE TGRS</a> |
   <a href="https://arxiv.org/abs/2608.11663">arXiv</a>
 </p>
 
@@ -29,8 +30,6 @@ In **Stage I**, frozen vision foundation models are used to generate high-qualit
 In **Stage II**, the Stage I pseudo-labels are used to train a category-specific change detector. A two-phase noise-aware learning strategy performs checkpoint-based pseudo-label updating and high-agreement sample selection to mitigate residual pseudo-label noise. Final predictions are obtained by voting over selected checkpoint predictions together with the corresponding Stage I pseudo-labels.
 
 ![Overview of the Zero-OVCD framework](assets/Zero-OVCD.png)
-
-> **Code:** Reproducibility details for both Stage I and Stage II are currently provided. The full source code will be made available upon paper acceptance.
 
 ## Datasets
 
@@ -61,7 +60,7 @@ Zero-OVCD employs three frozen vision foundation models in Stage I. Note that **
 | DINOv3 | ViT-L/16 (SAT-493M) | `dinov3_vitl16_pretrain_sat493m-eadcf0ff.pth` | [Link](https://huggingface.co/facebook/dinov3-vitl16-pretrain-sat493m) |
 | SegEarth-OV3 | SAM3-based PE-L+/14 | `sam3.pt` (shared with SAM3) | Same as SAM3 |
 
-## Stage I Reproducibility Details
+## Stage I
 
 The key preprocessing and mask-generation settings used in Stage I are provided below to facilitate reproducibility.
 
@@ -75,9 +74,11 @@ The key preprocessing and mask-generation settings used in Stage I are provided 
 
 - **SegEarth-OV3:** The input image is resized to scales `{0.8, 1.0, 1.2}`. When either spatial dimension exceeds `512` pixels, inference is performed using `512×512` sliding windows with a stride of `512`. Each inference view follows the SAM3-based preprocessing described above. The semantic response maps are bilinearly interpolated back to the original image resolution and averaged across the three scales.
 
-### Automatic Mask-Generation Settings
+### Automatic Mask Generation
 
-Automatic masks are generated using the default configuration adopted in DynamicEarth with the following parameters:
+Automatic instance masks are generated using the mask-generation configuration adopted in DynamicEarth. For reproducibility, we provide the corresponding batch-generation script and the parameter values used for automatic mask generation.
+
+**Generation script:** [`scripts/stage1/generate_sam3_auto_masks.py`](scripts/stage1/generate_sam3_auto_masks.py)
 
 | **Parameter** | **Value** |
 |:--------------|:---------:|
@@ -91,7 +92,20 @@ Automatic masks are generated using the default configuration adopted in Dynamic
 | `match_hist` | `False` |
 | `area_thresh` | `0.8` |
 
-Text-guided semantic masks are generated using the default SAM3 text-prompt inference settings.
+The script saves the class-agnostic automatic instance masks for each image as JSON files using lossless run-length encoding (RLE). Each JSON file records the image filename, height, width, and encoded instance masks (`rles`). An empty `rles` list indicates that no automatic mask was generated for that image.
+
+To run the script, update `local_sam3_dir`, `input_dir`, and `save_dir` to match your environment. Run it for the corresponding `A` (T1) and `B` (T2) image directories of each dataset and split.
+
+**Alternatively, you can directly use our pre-generated automatic mask JSON files**, avoiding the need to run the time-consuming SAM3 automatic mask-generation step. The files are organized by dataset and can be downloaded separately:
+
+| **Dataset** | **Pre-generated Automatic Mask JSON Files** |
+|:-----------:|:------------------------------------------:|
+| LEVIR-CD | Download link to be added |
+| WHU-CD | Download link to be added |
+| S2Looking | Download link to be added |
+| SECOND | Download link to be added |
+
+Please use the JSON files matching the input dataset, image split, and temporal directory (`A`/`B`). These files contain **class-agnostic automatic mask proposals**, **not** the final Stage I change pseudo-labels or ground-truth annotations. Text-guided semantic masks are generated separately using the default SAM3 text-prompt inference settings and are not included in these JSON files.
 
 ## Stage II Reproducibility Details
 
