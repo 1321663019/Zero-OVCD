@@ -123,3 +123,20 @@ The pretrained ResNet-18 V1c weights (`resnet18_v1c.pth`, 44.7 MB) can be downlo
 ```text
 checkpoint/resnet18_v1c.pth
 ```
+
+
+
+## Citation
+
+If you find Zero-OVCD useful in your research, please consider citing our paper:
+
+```bibtex
+@article{peng2026zero,
+  title={Zero-OVCD: Bridging Training-Free Foundation Models and Pseudo-Label Learning for Open-Vocabulary Change Detection},
+  author={Peng, Daifeng and Peng, Yuanke and Guan, Haiyan},
+  journal={IEEE Transactions on Geoscience and Remote Sensing},
+  year={2026},
+  publisher={IEEE},
+  doi={10.1109/TGRS.2026.3753971}
+}
+```
